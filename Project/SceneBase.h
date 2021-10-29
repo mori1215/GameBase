@@ -8,7 +8,7 @@ namespace Game
 	{
 	protected:
 		//シーンの変更フラグ
-		bool changeFlag; 
+		bool changeFlag { false };
 		//変更先シーン
 		int nextScene;   
 

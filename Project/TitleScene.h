@@ -10,7 +10,7 @@ namespace Game
 		//コンストラクタ
 		TitleScene();
 		//デストラクタ
-		virtual ~TitleScene() = default;
+		virtual ~TitleScene();
 
 		//読み込み
 		virtual bool Load() override;

@@ -11,7 +11,14 @@ namespace Game
 		ScenePtr currentScene;
 		//変更後実装されるシーン
 		ScenePtr nextScene;
-		int nextScene;
+		//エフェクト発生フラグ
+		bool effectInStart;
+		bool effectOutStart;
+		bool effectStart;
+		//シーンエフェクト実行フレーム
+		int waitCount;
+		//シーンエフェクトカウント
+		int effectCount;
 
 	public:
 		//コンストラクタ
@@ -19,7 +26,7 @@ namespace Game
 		//デストラクタ
 		~SceneManager();
 		//初期化
-		void Initialize(int sceneNo);
+		void Initialize(int sceneNo,int wait);
 		//更新
 		void Update();
 		//描画
