@@ -11,6 +11,32 @@
 #include	"GameApp.h"
 #include "GameDefine.h"
 
+#include <vector>
+#include <list>
+#include <string>
+
+#include <map>
+#include <unordered_map>
+#include <utility>
+
+std::pair<std::string, CTexture>pairTexture{"aiueo",CTexture()};
+std::unordered_map<std::string, CTexture>textureMap;
+void Func()
+{
+	pairTexture.first.c_str();
+	pairTexture.second.Load("");
+
+	textureMap["aiueo"].Load("");
+	textureMap["aiueo"].Release();
+}
+
+using TexturePtr = std::shared_ptr<CTexture>;
+std::vector<TexturePtr> textureArray;
+std::vector <int> testArray;
+std::list <int> testList;
+
+std::string name = "あいうえお";
+
 using namespace Game;
 
 /*************************************************************************//*!
@@ -24,6 +50,27 @@ MofBool CGameApp::Initialize(void){
 
 	//シーンをタイトルで初期化
 	sceneManager.Initialize(SceneName_Title,60);
+
+	MOF_PRINTLOG("配列要素数 : %d \n",testArray.size());
+
+	MOF_PRINTLOG("%s \n",name.c_str());
+	MOF_PRINTLOG("%d \n", name.length());
+	MOF_PRINTLOG("%d \n", name.size());
+	name += "かきくけこ";
+	MOF_PRINTLOG("%s \n", name.c_str());
+	name.substr(1, 2);
+	MOF_PRINTLOG("%s \n", name.c_str());
+
+	for (int i = 0; i < 3; i++)
+	{
+		testArray.push_back(10 + i);
+		testList.push_back(10 + i);
+	}
+	
+	for (int itr : testArray)
+	{
+		MOF_PRINTLOG("配列要素数 : %d \n",itr);
+	}
 
 	return TRUE;
 }
